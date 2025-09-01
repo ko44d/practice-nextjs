@@ -1,95 +1,43 @@
-import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
+    <div className={styles.main}>
+      <section className={styles.description}>
         <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
+          <h1>Next.js 練習アプリへようこそ 👋</h1>
           <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
+            これは、Next.js を全く触ったことがない人が、基本を手を動かして学べるように作られたミニ課題集です。
           </p>
-        </a>
-      </div>
-    </main>
+          <p>
+            下のリンクから各ページへ進み、ページ内の「やってみよう」の指示に従ってコードを書き換えてみましょう。
+          </p>
+        </div>
+      </section>
+
+      <section className={styles.grid}>
+        <Link href="/about" className={styles.card}>
+          <h2>1. About（サーバーコンポーネント） →</h2>
+          <p>サーバーコンポーネントで静的な内容を表示してみよう。</p>
+        </Link>
+        <Link href="/counter" className={styles.card}>
+          <h2>2. Counter（クライアント） →</h2>
+          <p>use client と useState を使ってカウンターを作ってみよう。</p>
+        </Link>
+        <Link href="/todos" className={styles.card}>
+          <h2>3. Todos（API & フェッチ） →</h2>
+          <p>API Route を作成し、サーバーコンポーネントでデータを取得しよう。</p>
+        </Link>
+        <Link href="/contact" className={styles.card}>
+          <h2>4. Contact（フォーム） →</h2>
+          <p>フォームを作り、API に POST してみよう。</p>
+        </Link>
+        <Link href="/styles-example" className={styles.card}>
+          <h2>5. Styles（CSS Module） →</h2>
+          <p>CSS Module を使って見た目を変えてみよう。</p>
+        </Link>
+      </section>
+    </div>
   );
 }

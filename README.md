@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next.js 練習アプリ（超入門）
 
-## Getting Started
+Next.js を全く触ったことのない人向けの、手を動かして学べるミニ課題集です。App Router（src/app）を使った Next.js 14 を前提にしています。
 
-First, run the development server:
+## 動かし方
+
+1. 依存をインストール
+
+```bash
+npm install
+```
+
+2. 開発サーバーを起動
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. ブラウザで http://localhost:3000 を開く
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 何が学べる？
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- ページとルーティング（/about, /todos など）
+- サーバーコンポーネントとクライアントコンポーネントの違い
+- API Route の作成とデータ取得（fetch）
+- 動的ルート（/todos/[id]）
+- フォーム送信（/contact）
+- CSS Module によるスタイリング（/styles-example）
 
-## Learn More
+## 練習の流れ
 
-To learn more about Next.js, take a look at the following resources:
+ホームページに各課題へのリンクがあります。各ページの「やってみよう」の指示に従ってコードを書き換えてみましょう。答えはありません。自分で試行錯誤するのが目的です。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- 1. About（サーバーコンポーネント）: `src/app/about/page.js`
+- 2. Counter（クライアント）: `src/app/counter/page.jsx`
+- 3. Todos（API & フェッチ）: `src/app/api/todos/route.js`, `src/app/todos/page.jsx`, `src/app/todos/[id]/page.jsx`
+- 4. Contact（フォーム）: `src/app/api/contact/route.js`, `src/app/contact/page.jsx`
+- 5. Styles（CSS Module）: `src/app/styles-example/page.jsx`, `src/app/styles-example/page.module.css`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 便利なヒント
 
-## Deploy on Vercel
+- サーバーコンポーネントでは `fetch` を直接使ってデータ取得ができます。
+- クライアントコンポーネントにするには、ファイル先頭に `'use client'` と書きます。
+- ローディング UI を付けたいときは、該当ディレクトリに `loading.js` を置きます（例: `src/app/todos/loading.js`）。
+- 404 ページを出したいときは `not-found.js` を使うか、コード内で `notFound()` を呼びます。
+- ページの `<head>`（タイトルなど）は `export const metadata = { title: '...' }` で設定できます。
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## もっと学ぶ
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Next.js 公式ドキュメント: https://nextjs.org/docs
+- Learn Next.js（公式チュートリアル）: https://nextjs.org/learn
+
+楽しんで学んでください！🚀
